@@ -9,16 +9,10 @@ import InboxIcon from "./app/assets/images/Comment.png";
 import NotificationIcon from "./app/assets/images/Notification.png";
 import { Image, Platform, View } from "react-native";
 
-import OnboardingScreen from "./app/screens/OnboardingScreen";
-import SignUpScreen from "./app/screens/SignUpScreen";
-import SignInScreen from "./app/screens/SignInScreen";
-import VerificationNumberScreen from "./app/screens/VerificationNumberScreen";
-import VerificationEmailScreen from "./app/screens/VerificationNumberScreen copy";
-import ConfirmOTPScreen from "./app/screens/ConfirmOTPScreen";
+
+
 import HomeScreen from "./app/screens/HomeScreen";
-import RoleSelectionScreen from "./app/screens/RoleSelectionScreen";
 import defaultStyles from "./app/config/Styles";
-// import Test from "./app/screens/Test";
 
 import * as SplashScreen from "expo-splash-screen";
 
@@ -37,16 +31,7 @@ const BottomTab = createBottomTabNavigator();
 export default function App() {
   const Stack = createNativeStackNavigator();
   const [appIsReady, setAppIsReady] = useState(false);
-  //
-  // const BottomTabs = () => {
-  //   return (
-  //     <Tab.Navigator>
-  //       <Tab.Screen name="home" component={HomeScreen} />
-
-  //     </Tab.Navigator>
-  //   );
-  // }
-
+  
   useEffect(() => {
     async function prepare() {
       try {
@@ -87,18 +72,8 @@ export default function App() {
         initialRouteName="main"
         // initialRouteName="verifyNumber"
       >
-        <Stack.Screen name="onboarding" component={OnboardingScreen} />
-        <Stack.Screen name="signup" component={SignUpScreen} />
-        <Stack.Screen name="signin" component={SignInScreen} />
-        <Stack.Screen
-          name="verifyNumber"
-          component={VerificationNumberScreen}
-        />
-        <Stack.Screen name="verifyEmail" component={VerificationEmailScreen} />
-        <Stack.Screen name="confirmOTP" component={ConfirmOTPScreen} />
+       
         <Stack.Screen name="main" component={BottomNavigation} />
-        <Stack.Screen name="role" component={RoleSelectionScreen} />
-        {/* <Stack.Screen name="test" component={Test} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -8,7 +8,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <Screen style={{ backgroundColor: "#fbfdff" }}>
-      <CusText>Home screen</CusText>
+      <CusText>Home screen</CusText>  <CusText>Start here and create the other pages too</CusText>
          </Screen>
   );
 }

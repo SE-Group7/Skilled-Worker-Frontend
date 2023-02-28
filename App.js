@@ -3,11 +3,15 @@ import { NavigationContainer, TabActions } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as Font from "expo-font";
+import { Image, Platform, View } from "react-native";
+
+
 import HomeIcon from "./app/assets/images/Menu.png";
 import FavoriteIcon from "./app/assets/images/Shape.png";
 import InboxIcon from "./app/assets/images/Comment.png";
 import NotificationIcon from "./app/assets/images/Notification.png";
-import { Image, Platform, View } from "react-native";
+import SignIn from "./app/screens/SignIn";
+import SignUp from "./app/screens/SignUp";
 
 
 
@@ -69,11 +73,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="main"
+        initialRouteName="SignUp"
         // initialRouteName="verifyNumber"
       >
        
         <Stack.Screen name="main" component={BottomNavigation} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
   );

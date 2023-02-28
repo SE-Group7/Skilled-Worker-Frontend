@@ -18,78 +18,53 @@ function CusTextInput({
   const handleFocus = () => {
     setIsFocused(true);
   };
-  const handleBlur = () =>
-    value.length > 0 ? setIsFocused(true) : setIsFocused(false);
-  const labelStyle = {
-    position: "absolute",
-    top: !isFocused ? 13 : -12,
-    left: 10,
-    fontSize: !isFocused ? 16 : 14,
-    backgroundColor: isFocused ? defaultStyles.colors.white : "transparent",
-  };
-
   return (
     <View style={styles.container}>
-      {title && <Text style={[defaultStyles.text, labelStyle]}>{title}</Text>}
-      <TextInput
-        style={[defaultStyles.text, styles.textField]}
-        {...otherProps}
-        value={value}
-        secureTextEntry={secureTextEntry && show}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        blurOnSubmit
-        onChangeText={onChangeText}
-      />
-      {(title == "Password" && !show && (
-        <Entypo
-          name="eye"
-          size={24}
-          color={defaultStyles.colors.Gray_color}
-          onPress={() => setShow(true)}
+      {title && <Text style={defaultStyles.text}>{title}</Text>}
+      <View style={styles.fieldWrapper}>
+        <TextInput
+          style={[defaultStyles.text, styles.textField]}
+          {...otherProps}
+          value={value}
+          secureTextEntry={secureTextEntry && show}
+          onFocus={handleFocus}
+          blurOnSubmit
+          onChangeText={onChangeText}
         />
-      )) ||
-        (title == "Password" && show && (
-          <Entypo
-            name="eye-with-line"
+        {secureTextEntry && (
+          <AntDesign
+            name={show ? "eyeo" : "eye"}
             size={24}
             color={defaultStyles.colors.Gray_color}
-            onPress={() => setShow(false)}
+            style={styles.icon}
+            onPress={() => setShow(!show)}
           />
-        ))}
-      {title == "Email" && value.match(/\S+@\S+\.\S+/) && (
-        <AntDesign
-          name="checkcircle"
-          size={16}
-          color={defaultStyles.colors.primary}
-        />
-      )}
-      {title == "Email"&& value.length > 0 && !value.match(/\S+@\S+\.\S+/) && (
-        <Ionicons name="alert-circle" size={19} color="#FF7000" />
-      )}
+        )}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: defaultStyles.colors.Gray_color,
-    borderWidth: 1,
-    height: 54,
-    borderRadius: 10,
-    flexDirection: "row",
-    width: "100%",
-    paddingHorizontal: 12,
-    paddingTop:14,
-    paddingBottom: 16,
-    marginTop: 15,
-    alignItems: "center",
+    marginTop: 20,
   },
   icon: {
     marginRight: 10,
   },
   textField: {
     flex: 1,
+  },
+  fieldWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderColor: defaultStyles.colors.Gray_color,
+    borderWidth: 1,
+    width: "100%",
+    borderRadius: 10,
+    height: 51,
+    paddingHorizontal: 12,
   },
 });
 

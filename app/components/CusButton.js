@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     alignItems:"center",
-    height:54,
+    height:55,
     marginVertical: 10,
     shadowOffset: { width: 0, height: 2 },
     shadowColor: "#000",
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     color: defaultStyles.colors.white,
     flex: 1,
     textAlign: "center",
-    fontSize: 14,
+    fontSize: 18,
     fontFamily:"regular"
   },
 });

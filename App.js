@@ -3,13 +3,14 @@ import { NavigationContainer, TabActions } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as Font from "expo-font";
+import { Image, Platform, View } from "react-native";
+
 import HomeIcon from "./app/assets/images/Menu.png";
 import FavoriteIcon from "./app/assets/images/Shape.png";
 import InboxIcon from "./app/assets/images/Comment.png";
 import NotificationIcon from "./app/assets/images/Notification.png";
-import { Image, Platform, View } from "react-native";
-
-
+import SignIn from "./app/screens/SignIn";
+import SignUp from "./app/screens/SignUp";
 
 import HomeScreen from "./app/screens/HomeScreen";
 import defaultStyles from "./app/config/Styles";
@@ -32,7 +33,7 @@ const BottomTab = createBottomTabNavigator();
 export default function App() {
   const Stack = createNativeStackNavigator();
   const [appIsReady, setAppIsReady] = useState(false);
-  
+
   useEffect(() => {
     async function prepare() {
       try {
@@ -70,11 +71,12 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="o1"
+        initialRouteName="SignIn"
         // initialRouteName="verifyNumber"
       >
-       <Stack.Screen name="o1" component={OnboardingScreen1}/>
         <Stack.Screen name="main" component={BottomNavigation} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -120,7 +122,7 @@ const BottomNavigation = () => (
             />
           ),
         }}
-        name="Discover"
+        name="Home"
         component={HomeScreen}
       />
       <BottomTab.Screen
@@ -136,7 +138,7 @@ const BottomNavigation = () => (
             />
           ),
         }}
-        name="Favorites"
+        name="Add"
         component={HomeScreen}
       />
       <BottomTab.Screen
@@ -152,7 +154,7 @@ const BottomNavigation = () => (
             />
           ),
         }}
-        name="Inbox"
+        name="Notifications"
         component={HomeScreen}
       />
       <BottomTab.Screen
@@ -168,7 +170,7 @@ const BottomNavigation = () => (
             />
           ),
         }}
-        name="Notifications"
+        name="Profile"
         component={HomeScreen}
       />
     </BottomTab.Navigator>

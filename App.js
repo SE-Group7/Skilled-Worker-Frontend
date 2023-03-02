@@ -13,6 +13,7 @@ import { Image, Platform, View } from "react-native";
 
 import HomeScreen from "./app/screens/HomeScreen";
 import defaultStyles from "./app/config/Styles";
+import OnboardingScreen1 from "./app/screens/Onboarding1";
 
 import * as SplashScreen from "expo-splash-screen";
 
@@ -69,10 +70,10 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="main"
+        initialRouteName="o1"
         // initialRouteName="verifyNumber"
       >
-       
+       <Stack.Screen name="o1" component={OnboardingScreen1}/>
         <Stack.Screen name="main" component={BottomNavigation} />
       </Stack.Navigator>
     </NavigationContainer>

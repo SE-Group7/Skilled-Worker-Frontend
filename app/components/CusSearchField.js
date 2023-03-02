@@ -10,7 +10,7 @@ function CusSearchField({ icon, ...otherProps }) {
       {icon  && (
         <MaterialCommunityIcons
           name={icon}
-          size={18}
+          size={28}
           color={defaultStyles.colors.Gray_color}
           style={styles.icon}
         />
@@ -28,11 +28,11 @@ const styles = StyleSheet.create({
     borderColor: defaultStyles.colors.white,
     backgroundColor: defaultStyles.colors.white,
     borderWidth: 1,
-    borderRadius: 15,
+    borderRadius: 10,
     flexDirection: "row",
-    width: "100%",
-    height: 50,
-    paddingLeft: 15,
+    width: 293,
+    height: 40,
+    paddingLeft: 10,
     marginVertical: 10,
     alignItems: "center",
   },
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   textField: {
     flex: 1,
+    // alignSelf: "flex-end",
     color: defaultStyles.colors.Gray_color,
   },
 });

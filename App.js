@@ -14,6 +14,7 @@ import SignUp from "./app/screens/SignUp";
 
 import HomeScreen from "./app/screens/HomeScreen";
 import defaultStyles from "./app/config/Styles";
+import OnboardingScreen1 from "./app/screens/Onboarding1";
 
 import * as SplashScreen from "expo-splash-screen";
 

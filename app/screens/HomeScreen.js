@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
+
 import Styles from "../config/Styles";
 import CusText from "../components/CusText";
 import CusSearchField from "../components/CusSearchField";
@@ -91,5 +92,6 @@ export default function HomeScreen({ navigation }) {
         ))}
       </ScrollView>
     </View>
+
   );
 }

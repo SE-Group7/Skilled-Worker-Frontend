@@ -8,10 +8,6 @@ import {
   ScrollView,
 } from "react-native";
 
-import Select, {
-  SelectConfig,
-  SelectItem,
-} from "@redmin_delishaj/react-native-select";
 
 import CusText from "../components/CusText";
 import CusButton from "../components/CusButton";

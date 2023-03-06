@@ -1,5 +1,0 @@
-<div>
-  <label for="otp">Enter OTP:</label>
-  <input type="text" id="otp" name="otp" maxlength="4" oninput="validateOTP(this.value)" required>
-  <p id="otpError" style="color: red;"></p>
-</div>

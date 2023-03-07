@@ -14,8 +14,9 @@ import SignUp from "./app/screens/SignUp";
 
 import HomeScreen from "./app/screens/HomeScreen";
 import defaultStyles from "./app/config/Styles";
-import OnboardingScreen1 from "./app/screens/Onboarding1";
-
+import OnboardingScreen1 from "./app/screens/OnboardingScreen1";
+import OnboardingScreen2 from "./app/screens/OnboardingScreen2";
+import OnboardingScreen3 from "./app/screens/OnboardingScreen3";
 import * as SplashScreen from "expo-splash-screen";
 
 // Keep the splash screen visible while we fetch resources
@@ -71,12 +72,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="SignIn"
+        initialRouteName="main"
         // initialRouteName="verifyNumber"
       >
         <Stack.Screen name="main" component={BottomNavigation} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="o1" component={OnboardingScreen1}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

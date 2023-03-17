@@ -1,9 +1,8 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { ImageBackground, Pressable, StyleSheet, View } from "react-native";
 import CusText from "../components/CusText";
 import Screen from "../components/Screen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import AppButton from "../components/AppButton";
 
 export default function OnboardingScreen2({ navigation }) {
   return (
@@ -39,10 +38,9 @@ export default function OnboardingScreen2({ navigation }) {
               style={styles.inactiveIndicator}
             />
           </View>
-          <AppButton
-            title="Next"
-            onPress={() => navigation.navigate("OnboardingScreen3")}
-          />
+          <Pressable onPress={() => navigation.navigate("OnboardingScreen3")}>
+            <CusText>title</CusText>
+          </Pressable>
         </View>
       </ImageBackground>
     </Screen>

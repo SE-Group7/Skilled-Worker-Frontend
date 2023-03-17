@@ -72,7 +72,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="main"
+        initialRouteName="o1"
         // initialRouteName="verifyNumber"
       >
         <Stack.Screen name="main" component={BottomNavigation} />

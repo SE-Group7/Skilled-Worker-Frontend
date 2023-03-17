@@ -2,7 +2,6 @@ import React from "react";
 import { ImageBackground, StyleSheet, View } from "react-native";
 import CusText from "../components/CusText";
 import Screen from "../components/Screen";
-import NextButton from "../components/NextButton";
 
 export default function OnboardingScreen3({ navigation }) {
   return (
@@ -31,8 +30,10 @@ export default function OnboardingScreen3({ navigation }) {
             <View style={styles.circleEmpty} />
             <View style={styles.circleEmpty} />
           </View>
-          <NextButton onPress={() => navigation.navigate("main")} />
-        </View>
+          <Pressable onPress={() => navigation.navigate("OnboardingScreen3")}>
+            <CusText>title</CusText>
+          </Pressable>
+          </View>
       </ImageBackground>
     </Screen>
   );

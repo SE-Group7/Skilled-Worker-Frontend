@@ -79,6 +79,8 @@ export default function App() {
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="o1" component={OnboardingScreen1}/>
+        <Stack.Screen name="o2" component={OnboardingScreen2}/>
+        <Stack.Screen name="o3" component={OnboardingScreen3}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

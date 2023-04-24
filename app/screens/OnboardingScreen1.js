@@ -5,34 +5,39 @@ import CusText from "../components/CusText";
 export default function OnboardingScreen1({ navigation }) {
   return (
     <ImageBackground
-      source={require("../assets/images/onboarding screen1.png")}
-      style={styles.container}
+      source={require("../assets/images/onboarding_screen1.png")}
+      style={{ flex: 1 }}
     >
       <View style={styles.footer}>
         <CusText style={styles.title}>Josh dey build the splash screen</CusText>
         <CusText style={styles.subTitle}>
           Need a skilled Worker? No problem, we’ve got you covered.
         </CusText>
-<View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
-
-        <View style={{ flexDirection: "row" }}>
-          <View style={[styles.circle, styles.activeCircle]} />
-          <View style={styles.circle} />
-          <View style={styles.circle} />
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View style={[styles.circle, styles.activeCircle]} />
+            <View style={styles.circle} />
+            <View style={styles.circle} />
+          </View>
+          <Pressable
+            onPress={() => navigation.navigate("OnboardingScreen3")}
+            style={{ width: 89, height: 47, borderRadius: 10 }}
+          >
+            <CusText>Next</CusText>
+          </Pressable>
         </View>
-        <Pressable onPress={() => navigation.navigate("OnboardingScreen3")}>
-          <CusText>title</CusText>
-        </Pressable>
-</View>
       </View>
     </ImageBackground>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   content: {
     flex: 1,
     alignItems: "center",
@@ -55,7 +60,7 @@ const styles = StyleSheet.create({
   footer: {
     justifyContent: "space-between",
     marginTop: 554,
-    marginHorizontal:25,
+    marginHorizontal: 25,
   },
   circle: {
     width: 10,
@@ -66,5 +71,7 @@ const styles = StyleSheet.create({
   },
   activeCircle: {
     backgroundColor: "#fff",
+    width: 16,
+    height: 16,
   },
 });

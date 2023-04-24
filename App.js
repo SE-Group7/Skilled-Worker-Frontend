@@ -18,6 +18,7 @@ import OnboardingScreen1 from "./app/screens/OnboardingScreen1";
 import OnboardingScreen2 from "./app/screens/OnboardingScreen2";
 import OnboardingScreen3 from "./app/screens/OnboardingScreen3";
 import * as SplashScreen from "expo-splash-screen";
+import AboutRecentWorker from "./app/screens/AboutRecentWorker";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -72,7 +73,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="o1"
+        initialRouteName="aboutworker"
         // initialRouteName="verifyNumber"
       >
         <Stack.Screen name="main" component={BottomNavigation} />
@@ -81,6 +82,7 @@ export default function App() {
         <Stack.Screen name="o1" component={OnboardingScreen1}/>
         <Stack.Screen name="o2" component={OnboardingScreen2}/>
         <Stack.Screen name="o3" component={OnboardingScreen3}/>
+        <Stack.Screen name="aboutworker" component={AboutRecentWorker}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

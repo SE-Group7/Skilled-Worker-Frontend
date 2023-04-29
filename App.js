@@ -11,6 +11,7 @@ import InboxIcon from "./app/assets/images/Comment.png";
 import NotificationIcon from "./app/assets/images/Notification.png";
 import SignIn from "./app/screens/SignIn";
 import SignUp from "./app/screens/SignUp";
+import OtpScreen from  "./app/screens/OtpScreeen";
 
 import HomeScreen from "./app/screens/HomeScreen";
 import defaultStyles from "./app/config/Styles";
@@ -73,7 +74,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="aboutworker"
+        initialRouteName="otp"
         // initialRouteName="verifyNumber"
       >
         <Stack.Screen name="main" component={BottomNavigation} />
@@ -82,6 +83,7 @@ export default function App() {
         <Stack.Screen name="o1" component={OnboardingScreen1}/>
         <Stack.Screen name="o2" component={OnboardingScreen2}/>
         <Stack.Screen name="o3" component={OnboardingScreen3}/>
+        <Stack.Screen name="otp" component={OtpScreen}/>
         <Stack.Screen name="aboutworker" component={AboutRecentWorker}/>
       </Stack.Navigator>
     </NavigationContainer>

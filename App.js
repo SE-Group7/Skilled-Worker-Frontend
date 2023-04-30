@@ -24,6 +24,7 @@ import Booking from "./app/screens/Booking";
 import BookingDetails from "./app/screens/BookingDetails";
 import Notifications from "./app/screens/Notification";
 import ClientProfile from "./app/screens/ClientProfile";
+import EditClientProfile from "./app/screens/EditClientProfile";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -78,7 +79,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="main"
+        // initialRouteName="main"
+        initialRouteName="editclientProfile"
+
       // initialRouteName="verifyNumber"
       >
         <Stack.Screen name="main" component={BottomNavigation} />
@@ -90,6 +93,7 @@ export default function App() {
         <Stack.Screen name="otp" component={OtpScreen} />
         <Stack.Screen name="aboutworker" component={AboutRecentWorker} />
         <Stack.Screen name="bookingDetails" component={BookingDetails} />
+        <Stack.Screen name="editclientProfile" component={EditClientProfile} />
       </Stack.Navigator>
     </NavigationContainer>
   );

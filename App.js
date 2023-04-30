@@ -5,13 +5,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as Font from "expo-font";
 import { Image, Platform, View } from "react-native";
 
-import HomeIcon from "./app/assets/images/Menu.png";
-import FavoriteIcon from "./app/assets/images/Shape.png";
-import InboxIcon from "./app/assets/images/Comment.png";
-import NotificationIcon from "./app/assets/images/Notification.png";
+import HomeIcon from "./app/assets/images/home.png";
+import AddIcon from "./app/assets/images/plus.png";
+import NotificationIcon from "./app/assets/images/bell.png";
+import ProfileIcon from "./app/assets/images/user.png";
 import SignIn from "./app/screens/SignIn";
 import SignUp from "./app/screens/SignUp";
-import OtpScreen from  "./app/screens/OtpScreeen";
+import OtpScreen from "./app/screens/OtpScreeen";
 
 import HomeScreen from "./app/screens/HomeScreen";
 import defaultStyles from "./app/config/Styles";
@@ -20,6 +20,7 @@ import OnboardingScreen2 from "./app/screens/OnboardingScreen2";
 import OnboardingScreen3 from "./app/screens/OnboardingScreen3";
 import * as SplashScreen from "expo-splash-screen";
 import AboutRecentWorker from "./app/screens/AboutRecentWorker";
+import Booking from "./app/screens/Booking";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -74,17 +75,17 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="otp"
-        // initialRouteName="verifyNumber"
+        initialRouteName="main"
+      // initialRouteName="verifyNumber"
       >
         <Stack.Screen name="main" component={BottomNavigation} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="o1" component={OnboardingScreen1}/>
-        <Stack.Screen name="o2" component={OnboardingScreen2}/>
-        <Stack.Screen name="o3" component={OnboardingScreen3}/>
-        <Stack.Screen name="otp" component={OtpScreen}/>
-        <Stack.Screen name="aboutworker" component={AboutRecentWorker}/>
+        <Stack.Screen name="o1" component={OnboardingScreen1} />
+        <Stack.Screen name="o2" component={OnboardingScreen2} />
+        <Stack.Screen name="o3" component={OnboardingScreen3} />
+        <Stack.Screen name="otp" component={OtpScreen} />
+        <Stack.Screen name="aboutworker" component={AboutRecentWorker} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -97,12 +98,13 @@ const BottomNavigation = () => (
         tabBarActiveTintColor: defaultStyles.colors.primary,
         tabBarInactiveTintColor: defaultStyles.colors.Gray_color,
         tabBarItemStyle: {
-          marginBottom: 27,
-          marginTop: 15,
+          marginBottom: 15,
+          marginTop: 0,
+          gap:12
         },
         tabBarStyle: {
-          height: 85,
-          height: 85,
+          height: 100,
+          paddingTop:20,
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
           ...(Platform.OS == "android"
@@ -142,7 +144,7 @@ const BottomNavigation = () => (
                   ? defaultStyles.colors.primary
                   : defaultStyles.colors.Gray_color,
               }}
-              source={FavoriteIcon}
+              source={AddIcon}
             />
           ),
         }}
@@ -158,12 +160,12 @@ const BottomNavigation = () => (
                   ? defaultStyles.colors.primary
                   : defaultStyles.colors.Gray_color,
               }}
-              source={InboxIcon}
+              source={NotificationIcon}
             />
           ),
         }}
         name="Notifications"
-        component={HomeScreen}
+        component={Booking}
       />
       <BottomTab.Screen
         options={{
@@ -174,7 +176,7 @@ const BottomNavigation = () => (
                   ? defaultStyles.colors.primary
                   : defaultStyles.colors.Gray_color,
               }}
-              source={NotificationIcon}
+              source={ProfileIcon}
             />
           ),
         }}

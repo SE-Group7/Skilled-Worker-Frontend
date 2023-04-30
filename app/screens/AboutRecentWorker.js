@@ -121,7 +121,7 @@ export default function AboutRecentWorker({ navigation }) {
             }}
           />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View style={{marginRight:"auto"}}>
+            <View style={{ marginRight: "auto" }}>
               <CusText
                 style={{ fontFamily: "medium", fontSize: 18, color: "#342F95" }}
               >
@@ -155,6 +155,28 @@ export default function AboutRecentWorker({ navigation }) {
             </View>
           </View>
         </View>
+      </View>
+      <View style={{ marginHorizontal: 25, marginTop: 20 }}>
+        <CusText>Service Timestamp:</CusText>
+        <View style={{ flexDirection: "row", justifyContent: 'space-between', }}>
+          <CusText style={{ fontFamily: "semibold", fontSize: 24 }}>4:30pm</CusText>
+          <CusText style={{ fontFamily: "semibold", fontSize: 24 }}>12 Jan 2023</CusText>
+
+        </View>
+        <View style={{ flexDirection: "row", justifyContent: 'space-around',marginTop:20 }}>
+          <Pressable onPress={() => console.log("call")} style={{ flexDirection: "column", justifyContent: 'space-between',alignItems:"center" }}>
+            <Image source={require("../assets/images/call.png")} />
+            <CusText style={{ fontFamily: "medium", fontSize: 14 }}>Call</CusText>
+
+
+          </Pressable>
+          <Pressable onPress={() => console.log("report")} style={{ flexDirection: "column", justifyContent: 'space-between',alignItems:"center" }}>
+            <Image source={require("../assets/images/report.png")} />
+            <CusText style={{ fontFamily: "medium", fontSize: 14 }}>Report</CusText>
+
+          </Pressable>
+        </View>
+
       </View>
     </View>
   );

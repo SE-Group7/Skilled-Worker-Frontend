@@ -37,14 +37,14 @@ export default function SignIn({ navigation }) {
   //   };
 
   const SignInHandler = () => {
-    navigation.navigate("main");
+    navigation.navigate("otp");
   };
   return (
     <ImageBackground
       source={require("../assets/images/signin.png")}
       style={{ flex: 1, paddingHorizontal: 20 }}
     >
-      <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={100}>
+      <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
         <Image
           source={require("../assets/images/logo.png")}
           style={{ width: 104, height: 99, marginTop: 90, alignSelf: "center" }}

@@ -31,9 +31,10 @@ export default function SignIn({ navigation }) {
         <CusText style={{ fontSize: 24 }}>Sign In</CusText>
         <CusTextInput
           title="Phone Number"
-          keyboardType="number-pad"
+          // keyboardType="number-pad"
           value={phoneNumber}
           onChangeText={(e) => setPhoneNumber(e)}
+          maxLength={10}
         />
         <CusTextInput
           title="Password"

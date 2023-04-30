@@ -7,6 +7,7 @@ import {
   Animated,
   ScrollView,
   Pressable,
+  TouchableWithoutFeedback
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
@@ -48,61 +49,63 @@ export default function HomeScreen({ navigation }) {
 
 
   return (
-    <View style={{ backgroundColor: "#fbfdff", flex: 1 }}>
-      <StatusBar style="light" />
-      <View
-        style={{
-          backgroundColor: Styles.colors.primary,
-          height: 125,
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          borderBottomRightRadius: 30,
-          borderBottomLeftRadius: 30,
-          paddingBottom: 10,
-        }}
-      >
+    <TouchableWithoutFeedback onPress={() => setMenuOpened(false)}>
+
+      <View style={{ backgroundColor: "#fbfdff", flex: 1 }}>
+        <StatusBar style="light" />
         <View
           style={{
-            flexDirection: "row",
-            alignItems: "center",
-            width: "100%",
-            justifyContent: "space-between",
-            paddingHorizontal: 20,
+            backgroundColor: Styles.colors.primary,
+            height: 125,
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            borderBottomRightRadius: 30,
+            borderBottomLeftRadius: 30,
+            paddingBottom: 10,
           }}
         >
-          <Pressable onPress={() => setMenuOpened(true)}>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              width: "100%",
+              justifyContent: "space-between",
+              paddingHorizontal: 20,
+            }}
+          >
+            <Pressable onPress={() => setMenuOpened(true)}>
 
-            <Image
-              source={require("../assets/images/client.jpg")}
-              style={{ width: 38, height: 38, borderRadius: 38 }}
-            />
-          </Pressable>
-          <CusSearchField icon="magnify" placeholder="Search Recent Service" />
+              <Image
+                source={require("../assets/images/client.jpg")}
+                style={{ width: 38, height: 38, borderRadius: 38 }}
+              />
+            </Pressable>
+            <CusSearchField icon="magnify" placeholder="Search Recent Service" />
+          </View>
         </View>
-      </View>
 
-      <CusText
-        style={{
-          fontFamily: "semibold",
-          fontSize: 24,
-          marginTop: 15,
-          marginLeft: 20,
-        }}
-      >
-        Recent Bookings
-      </CusText>
-      <ScrollView style={{ paddingHorizontal: 20 }}>
-        {bookings.map((booking) => (
-          <Pressable onPress={()=>navigation.navigate("aboutworker")}>
-          <WorkerCard
-            key={booking.id}
-            title={booking.title}
-            Worker={booking.Worker}
-            WorkerName={booking.WorkerName}
-            rating={booking.rating}
-          /></Pressable>
-        ))}
-      </ScrollView>
+        <CusText
+          style={{
+            fontFamily: "semibold",
+            fontSize: 24,
+            marginTop: 15,
+            marginLeft: 20,
+          }}
+        >
+          Recent Bookings
+        </CusText>
+        <ScrollView style={{ paddingHorizontal: 20 }}>
+          {bookings.map((booking) => (
+            <Pressable onPress={() => navigation.navigate("aboutworker")}>
+              <WorkerCard
+                key={booking.id}
+                title={booking.title}
+                Worker={booking.Worker}
+                WorkerName={booking.WorkerName}
+                rating={booking.rating}
+              /></Pressable>
+          ))}
+        </ScrollView>
 
         <ModalContainer show={menuOpened} height={180}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -124,14 +127,15 @@ export default function HomeScreen({ navigation }) {
               marginTop: 18
             }}
           />
-          <Pressable onPress={()=>{setMenuOpened(false); navigation.navigate("SignIn")}} style={{marginTop:15,flexDirection:"row"}}>
-            <Image source={require("../assets/images/log-out.png")}/>
-          <CusText style={{ fontFamily: "medium", fontSize: 18 ,marginLeft:20}}>Log Out</CusText>
+          <Pressable onPress={() => { setMenuOpened(false); navigation.navigate("SignIn") }} style={{ marginTop: 15, flexDirection: "row" }}>
+            <Image source={require("../assets/images/log-out.png")} />
+            <CusText style={{ fontFamily: "medium", fontSize: 18, marginLeft: 20 }}>Log Out</CusText>
 
           </Pressable>
-        </ModalContainer>     
+        </ModalContainer>
 
-    </View>
+      </View>
+    </TouchableWithoutFeedback>
 
   );
 }

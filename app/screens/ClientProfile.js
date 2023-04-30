@@ -9,7 +9,7 @@ import Styles from "../config/Styles";
 import CusText from "../components/CusText";
 
 
-export default function Booking({ navigation }) {
+export default function ClientProfile({ navigation }) {
     const DATA = [
         {
             id: "1",
@@ -104,8 +104,9 @@ export default function Booking({ navigation }) {
                             top: -2,
                         }}
                     >
-                        Bookings
+                       Profile
                     </CusText>
+                    <Image source={require("../assets/images/edit.png")} style={{width:20,height:20}}/>
                 </View>
             </View>
 

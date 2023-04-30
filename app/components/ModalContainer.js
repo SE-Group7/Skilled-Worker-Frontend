@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Modal, View, Image } from "react-native";
+import { Modal, View, Image, TouchableWithoutFeedback } from "react-native";
 
 const ModalContainer = ({ show, children, onRequestClose, alignItems, height }) => {
-  
-  const [close, setClose] = useState(false)
+
   return (
-    <Modal animationType="slide" transparent={true} visible={show} onRequestClose={close}>
+    <Modal animationType="slide" transparent={true} visible={show} >
+
       <View
         style={{
           flex: 1,
@@ -14,7 +14,7 @@ const ModalContainer = ({ show, children, onRequestClose, alignItems, height }) 
         }}
 
 
-      >
+       > 
         <View
           style={{
             backgroundColor: "white",

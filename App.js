@@ -21,6 +21,9 @@ import OnboardingScreen3 from "./app/screens/OnboardingScreen3";
 import * as SplashScreen from "expo-splash-screen";
 import AboutRecentWorker from "./app/screens/AboutRecentWorker";
 import Booking from "./app/screens/Booking";
+import BookingDetails from "./app/screens/BookingDetails";
+import Notifications from "./app/screens/Notification";
+import ClientProfile from "./app/screens/ClientProfile";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -86,6 +89,7 @@ export default function App() {
         <Stack.Screen name="o3" component={OnboardingScreen3} />
         <Stack.Screen name="otp" component={OtpScreen} />
         <Stack.Screen name="aboutworker" component={AboutRecentWorker} />
+        <Stack.Screen name="bookingDetails" component={BookingDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -149,7 +153,7 @@ const BottomNavigation = () => (
           ),
         }}
         name="Add"
-        component={HomeScreen}
+        component={Booking}
       />
       <BottomTab.Screen
         options={{
@@ -165,7 +169,7 @@ const BottomNavigation = () => (
           ),
         }}
         name="Notifications"
-        component={Booking}
+        component={Notifications}
       />
       <BottomTab.Screen
         options={{
@@ -181,7 +185,7 @@ const BottomNavigation = () => (
           ),
         }}
         name="Profile"
-        component={HomeScreen}
+        component={ClientProfile}
       />
     </BottomTab.Navigator>
   </View>

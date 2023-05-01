@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState,useContext } from "react";
 import { NavigationContainer, TabActions } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -12,6 +12,9 @@ import ProfileIcon from "./app/assets/images/user.png";
 import SignIn from "./app/screens/SignIn";
 import SignUp from "./app/screens/SignUp";
 import OtpScreen from "./app/screens/OtpScreeen";
+
+import { AuthProvider } from "./app/context/AuthContext";
+import { AuthContext } from "./app/context/AuthContext";
 
 import HomeScreen from "./app/screens/HomeScreen";
 import defaultStyles from "./app/config/Styles";
@@ -41,6 +44,7 @@ const BottomTab = createBottomTabNavigator();
 export default function App() {
   const Stack = createNativeStackNavigator();
   const [appIsReady, setAppIsReady] = useState(false);
+  const {userInfo} = useContext(AuthContext);
 
   useEffect(() => {
     async function prepare() {
@@ -76,26 +80,32 @@ export default function App() {
   onLayoutRootView();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{ headerShown: false }}
-        // initialRouteName="main"
-        initialRouteName="editclientProfile"
+    <AuthProvider>
 
-      // initialRouteName="verifyNumber"
-      >
-        <Stack.Screen name="main" component={BottomNavigation} />
-        <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="o1" component={OnboardingScreen1} />
-        <Stack.Screen name="o2" component={OnboardingScreen2} />
-        <Stack.Screen name="o3" component={OnboardingScreen3} />
-        <Stack.Screen name="otp" component={OtpScreen} />
-        <Stack.Screen name="aboutworker" component={AboutRecentWorker} />
-        <Stack.Screen name="bookingDetails" component={BookingDetails} />
-        <Stack.Screen name="editclientProfile" component={EditClientProfile} />
-      </Stack.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          // initialRouteName="main"
+          initialRouteName="SignIn"
+        // initialRouteName="editclientProfile"
+
+        // initialRouteName="verifyNumber"
+        >
+
+          <Stack.Screen name="main" component={BottomNavigation} />
+          <Stack.Screen name="SignIn" component={SignIn} />
+          <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="o1" component={OnboardingScreen1} />
+          <Stack.Screen name="o2" component={OnboardingScreen2} />
+          <Stack.Screen name="o3" component={OnboardingScreen3} />
+          <Stack.Screen name="otp" component={OtpScreen} />
+          <Stack.Screen name="aboutworker" component={AboutRecentWorker} />
+          <Stack.Screen name="bookingDetails" component={BookingDetails} />
+          <Stack.Screen name="editclientProfile" component={EditClientProfile} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
+
   );
 }
 
@@ -108,11 +118,11 @@ const BottomNavigation = () => (
         tabBarItemStyle: {
           marginBottom: 15,
           marginTop: 0,
-          gap:12
+          gap: 12
         },
         tabBarStyle: {
           height: 100,
-          paddingTop:20,
+          paddingTop: 20,
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
           ...(Platform.OS == "android"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Image,
   ImageBackground,
@@ -15,9 +15,11 @@ import CusTextInput from "../components/CusTextInput";
 // import jobData from "../config/jobData.json";
 import Styles from "../config/Styles";
 
+import { AuthContext } from '../context/AuthContext';
+
 export default function SignIn({ navigation }) {
   const [role, setRole] = useState("client");
-  const [name, setName] = useState("");
+  const [fullname, setFullName] = useState("");
   const [age, setAge] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
@@ -27,16 +29,12 @@ export default function SignIn({ navigation }) {
   const [skill, setSkill] = useState("");
   const [id, setId] = useState("");
 
-  //   const config: SelectConfig = {
-  //     fontSize: 18,
-  //     backgroundColor: "#404040",
-  //     textColor: "white",
-  //     selectedBackgroundColor: "white",
-  //     selectedTextColor: "black",
-  //     selectedFontWeight: "bold",
-  //   };
+
+
+  const { register } = useContext(AuthContext);
 
   const SignInHandler = () => {
+    register(fullname, password, confirmPassword, role, age, phoneNumber, location, occupation, skill);
     navigation.navigate("otp");
   };
   return (
@@ -107,8 +105,8 @@ export default function SignIn({ navigation }) {
           /> */}
           <CusTextInput
             title="Full Name"
-            value={name}
-            onChangeText={(e) => setName(e)}
+            value={fullName}
+            onChangeText={(e) => setFullName(e)}
           />
           <CusTextInput
             title="Age"
@@ -127,6 +125,21 @@ export default function SignIn({ navigation }) {
             value={location}
             onChangeText={(e) => setLocation(e)}
           />
+          {role == "client" ?
+
+            <CusTextInput
+              title="Occupation"
+              value={location}
+              onChangeText={(e) => setOccupation(e)}
+            />
+            :
+
+            <CusTextInput
+              title="Occupation"
+              value={location}
+              onChangeText={(e) => setSkill(e)}
+            />
+          }
           <CusTextInput
             title="National Identification Number"
             value={id}

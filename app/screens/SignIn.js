@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import {
   Image,
   ImageBackground,
@@ -12,12 +12,19 @@ import CusButton from "../components/CusButton";
 import CusTextInput from "../components/CusTextInput";
 import Styles from "../config/Styles";
 
+import {AuthContext} from '../context/AuthContext';
+
 export default function SignIn({ navigation }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const {login} = useContext(AuthContext);
+
   const SignInHandler = () => {
+    login(phoneNumber, password);
     navigation.navigate("main");
   };
+
+
   return (
     <ImageBackground
       source={require("../assets/images/signin.png")}
